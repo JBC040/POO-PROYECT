@@ -4,7 +4,7 @@ public abstract class Articulo {
         private final String nombre;
         private double precio;
         private int stock;
-        protected double descuento;
+        private double descuento;
 
         public Articulo(String codigo, String nombre, double precio, int stock, double descuento) {
             this.nombre = nombre;
@@ -16,6 +16,16 @@ public abstract class Articulo {
 
         public int getStock() {
             return stock;
+        }
+
+        public void aumentarStock(int cantidad) {
+            stock += cantidad;
+        }
+
+        public void disminuirStock(int cantidad) {
+            if (cantidad <= stock) {
+                stock -= cantidad;
+            }
         }
 
         public String getNombre() {
@@ -30,19 +40,22 @@ public abstract class Articulo {
             return codigo;
         }
 
+        public double getDescuento() {
+            return descuento;
+        }
+
         public void setPrecio(double precio) {
             this.precio = precio;
         }
 
         @Override
         public String toString() {
-            return "Articulo{" +
-                "codigo='" + codigo + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", precio=" + precio +
-                ", stock=" + stock +
-                ", descuento=" + descuento +
-                '}';
+            return "Articulo" +
+                "\n Nombre: " + nombre +
+                "\n Codigo: " + codigo +
+                "\n Precio: " + precio +
+                "\n Stock: " + stock +
+                "\n Descuento: " + descuento;
         }
 
         public double calcularPrecioFinal() {
@@ -52,12 +65,30 @@ public abstract class Articulo {
         public abstract void mostrarInformacion();
 
         public String estaDisponible (int cantidad) {
-            if (cantidad > 0) {
+            if (stock >= cantidad) {
                 return "Esta disponible";
             } else {
                 return "No esta disponible";
             }
         }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
 
+        if (!(obj instanceof Articulo)) {
+            return false;
+        }
+
+        Articulo articulo = (Articulo) obj;
+
+        return codigo.equals(articulo.codigo);
+    }
+
+    @Override
+    public int hashCode() {
+        return codigo.hashCode();
+    }
 }

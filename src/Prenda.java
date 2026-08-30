@@ -4,9 +4,9 @@ public abstract class Prenda extends Articulo {
     private String color;
 
     public Prenda(String talla, String color, String codigo, String nombre, double precio, int stock, double descuento) {
+        super(codigo, nombre, precio, stock, descuento);
         this.talla = talla;
         this.color = color;
-        super(codigo, nombre, precio, stock, descuento);
     }
 
     public String getTalla() {
@@ -26,9 +26,8 @@ public abstract class Prenda extends Articulo {
     @Override
     public String toString() {
         return super.toString() +
-                "Prenda{" +
-                "talla='" + talla + '\'' +
-                ", color='" + color + '\'' +
-                '}';
+                "\n Prenda" +
+                "\n Talla: " + talla +
+                "\n Color: " + color;
     }
 }
