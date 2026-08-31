@@ -63,8 +63,8 @@ public class Venta {
             aplicarDescuento(5);
         }
     }
-    public void aplicarDescuento(double porcentaje) {
-        total = total - (total * porcentaje / 100);
+    public double aplicarDescuento(double porcentaje) {
+        return total = total - CalculadoraDescuento.calcularDescuento(total, porcentaje);
     }
 
     public void verificarCliente()
