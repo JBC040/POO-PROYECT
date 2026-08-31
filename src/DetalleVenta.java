@@ -8,7 +8,7 @@ public class DetalleVenta {
             throws ProductoNoEncontradoException {
 
         if (articulo == null) {
-            throw new ProductoNoEncontradoException();
+            throw new ProductoNoEncontradoException("El producto no fue encontrado");
         }
 
         this.articulo = articulo;
