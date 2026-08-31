@@ -18,10 +18,6 @@ public abstract class Articulo {
             return stock;
         }
 
-        public void aumentarStock(int cantidad) {
-            stock += cantidad;
-        }
-
         public void disminuirStock(int cantidad) {
             if (cantidad <= stock) {
                 stock -= cantidad;
