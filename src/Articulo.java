@@ -1,3 +1,5 @@
+import tienda.CalculadoraDescuento;
+
 public abstract class Articulo {
 
         private final String codigo;
@@ -59,7 +61,7 @@ public abstract class Articulo {
         }
 
         public double calcularPrecioFinal() {
-            return precio;
+            return precio - CalculadoraDescuento.calcularDescuento(precio, descuento);
         }
 
         public abstract void mostrarInformacion();
