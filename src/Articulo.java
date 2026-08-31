@@ -1,5 +1,3 @@
-import tienda.CalculadoraDescuento;
-
 public abstract class Articulo {
 
         private final String codigo;

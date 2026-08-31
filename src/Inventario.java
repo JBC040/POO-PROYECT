@@ -1,4 +1,3 @@
-package tienda;
 public class Inventario {
 
     private Articulo[] articulos;
