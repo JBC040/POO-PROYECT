@@ -1,4 +1,3 @@
-package tienda;
 public final class CalculadoraDescuento {
 
     private CalculadoraDescuento() {
